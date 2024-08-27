@@ -1,5 +1,5 @@
-import FilterList from "@/components/common/FilterList/FilterList";
-import JobList from "@/components/common/JobList/JobList";
+import FilterList from "@/components/common/TagList/TagList";
+import VacancyList from "@/components/common/VacancyList/VacancyList";
 import Navbar from "@/components/ui/Navbar/Navbar";
 import "@/styles/globals.css";
 import "@/styles/normalize.css";
@@ -9,7 +9,7 @@ export default function Home() {
     <main>
       <Navbar />
       <FilterList />
-      <JobList />
+      <VacancyList />
     </main>
   );
 }

@@ -1,4 +1,5 @@
-export type Job = {
+export type Vacancy = {
+  id: number;
   logo: string;
   company: string;
   postedAt: string;

@@ -1,5 +1,6 @@
-import { CategoryProvider } from "@/context/CategoryContext";
 import type { Metadata } from "next";
+import { FilterProvider } from "@/context/FilterContext";
+import QueryProvider from "@/context/QueryProvider";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -13,9 +14,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <CategoryProvider>
-        <body>{children}</body>
-      </CategoryProvider>
+      <QueryProvider>
+        <FilterProvider>
+          <body>{children}</body>
+        </FilterProvider>
+      </QueryProvider>
     </html>
   );
 }
