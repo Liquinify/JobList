@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { FilterProvider } from "@/context/FilterContext";
 import QueryProvider from "@/context/QueryProvider";
+import { SelectedProvider } from "@/context/SelectedContext";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +17,9 @@ export default function RootLayout({
     <html lang="en">
       <QueryProvider>
         <FilterProvider>
-          <body>{children}</body>
+          <SelectedProvider>
+            <body>{children}</body>
+          </SelectedProvider>
         </FilterProvider>
       </QueryProvider>
     </html>

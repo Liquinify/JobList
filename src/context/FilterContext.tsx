@@ -8,14 +8,14 @@ import {
   useState,
 } from "react";
 
-type CategoryContext = {
+interface CategoryContext {
   selectedTags: string[];
   addNewTag: (name: string) => void;
   filterSelectedTag: (name: string) => void;
   clearSelectedTags: () => void;
   searchValue: string;
   setSearchValue: Dispatch<SetStateAction<string>>;
-};
+}
 
 const FilterContext = createContext<CategoryContext>({} as CategoryContext);
 

@@ -1,10 +1,14 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { useQuery } from "react-query";
 import { getVacancies } from "@/api/getVacancies";
 import { FilterContext } from "@/context/FilterContext";
 
 export const useVacancies = () => {
-  const { data: vacancies, isError } = useQuery("vacancies", getVacancies);
+  const {
+    data: vacancies,
+    isError,
+    isLoading,
+  } = useQuery("vacancies", getVacancies);
   const { searchValue, setSearchValue, selectedTags } =
     useContext(FilterContext);
 
@@ -12,5 +16,12 @@ export const useVacancies = () => {
     job.languages.some((tag: string) => selectedTags.includes(tag))
   );
 
-  return { vacancies, filteredTags, searchValue, setSearchValue };
+  return {
+    vacancies,
+    filteredTags,
+    searchValue,
+    setSearchValue,
+    isLoading,
+    isError,
+  };
 };
