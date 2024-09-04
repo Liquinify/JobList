@@ -8,10 +8,11 @@ import Link from "next/link";
 import { SelectedContext } from "@/context/SelectedContext";
 import {
   createClientComponentClient,
-  Session,
+  User,
 } from "@supabase/auth-helpers-nextjs";
+import { CiSearch } from "react-icons/ci";
 
-const Navbar = ({ session }: { session: Session | null }) => {
+const Navbar = ({ user }: { user: User | null }) => {
   const { setSearchValue } = useVacancies();
   const [dropdown, setDropdown] = useState(false);
   const ref = useRef<HTMLDivElement | null>(null);
@@ -42,17 +43,19 @@ const Navbar = ({ session }: { session: Session | null }) => {
         <Link href="/">
           <h1>Joblist</h1>
         </Link>
+      </section>
+      <div>
         <input
           placeholder="Search"
           onChange={(e) => setSearchValue(e.target.value)}
         />
-      </section>
+        <CiSearch />
+      </div>
       <section>
         <Link href="/favorites">
-          <CiStar fontSize={32} />
-          {selectedVacancies.length > 0 ? selectedVacancies.length : null}
+          <CiStar fontSize={30} />
+          <p>{selectedVacancies.length > 0 && selectedVacancies.length}</p>
         </Link>
-
         <div>
           <CiLight fontSize={23} onClick={() => setDropdown((prev) => !prev)} />
         </div>
@@ -63,7 +66,7 @@ const Navbar = ({ session }: { session: Session | null }) => {
             <p>System</p>
           </article>
         )}
-        {session ? (
+        {user ? (
           <button className={style.button} onClick={handleSignOut}>
             Logout
           </button>

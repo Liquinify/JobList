@@ -2,28 +2,29 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #333333;
+  border-bottom: 1px solid #ccc;
   margin-bottom: 3rem;
   padding-inline: 2rem;
 
-  & > section {
+  & > div {
+    position: relative;
     display: flex;
     align-items: center;
-    gap: 2rem;
-
-    & > h1 {
-      font-size: 1.5rem;
-      cursor: pointer;
-    }
+    max-width: 100%;
+    width: 45rem;
+    margin-left: 5rem;
 
     & > input {
-      height: 3rem;
-      width: 20rem;
-      border-radius: 5px;
+      height: 2.5rem;
+      width: 45rem;
+      border-radius: 3px;
       outline: none;
-      padding: 0 20px;
-      background: transparent;
-      border: 1px solid #333030;
+      padding: 0 35px;
+      border: none;
+      color: #333333;
+      font-size: 1rem;
+      margin-left: 5rem;
+      background-color: #eef6f6;
 
       &:focus {
         border: 1px solid lightgray;
@@ -31,31 +32,59 @@
       }
     }
 
+    & > svg {
+      position: absolute;
+      left: 12.5%;
+      font-size: 1.2rem;
+      color: #888;
+      pointer-events: none;
+    }
+  }
+
+  & > section {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+
+    & > h1 {
+      font-size: 1.75rem;
+      cursor: pointer;
+      padding-right: 1rem;
+    }
+
     & > a {
       display: flex;
       align-items: center;
+      color: #333333;
+      text-decoration: none;
+
       & > svg {
         cursor: pointer;
-        width: 1.5rem;
-        height: 1.5rem;
+        transition: background-color 0.2s ease-in-out;
 
         &:hover {
           border-radius: 5px;
-          background-color: lightgray;
-          transition: 0.1s;
+          background-color: #eef6f6; // TODO: HERE
         }
+      }
+
+      & > p {
+        position: absolute;
+        font-size: 0.8rem;
+        top: 2.5%;
+        left: 88.6%;
       }
     }
 
     & > svg {
       cursor: pointer;
-      width: 1.5rem;
-      height: 1.5rem;
+      width: 1.75rem;
+      height: 1.75rem;
+      transition: background-color 0.2s ease-in-out;
 
       &:hover {
         border-radius: 5px;
         background-color: lightgray;
-        transition: 0.1s;
       }
     }
 
@@ -69,10 +98,10 @@
       cursor: pointer;
       border-radius: 5px;
       box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.2s ease-in-out;
 
       &:hover {
-        background-color: lightgray;
-        transition: 0.1s;
+        background-color: #eef6f6;
       }
     }
   }
@@ -84,7 +113,7 @@
   position: absolute;
   width: 8rem;
   height: 7rem;
-  top: 7%;
+  top: 7.5%;
   right: 2.95%;
   border-radius: 5px;
   padding: 3px 5px;
@@ -103,14 +132,14 @@
 .button {
   width: 5rem;
   height: 2.5rem;
-  border: 1px solid white;
-  background-color: blue;
+  border: 1px solid transparent;
+  background-color: #333399;
   color: white;
   cursor: pointer;
   border-radius: 5px;
+  transition: background-color 0.3s ease-in-out;
 
   &:hover {
-    background-image: linear-gradient(rgb(0 0 0/5%) 0 0);
-    transition: 0.5s;
+    background-color: #2a2a72;
   }
 }

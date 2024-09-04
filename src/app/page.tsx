@@ -11,12 +11,12 @@ export default async function Home() {
   const supabase = createServerComponentClient({ cookies });
 
   const {
-    data: { session },
-  } = await supabase.auth.getSession();
+    data: { user },
+  } = await supabase.auth.getUser();
 
   return (
     <>
-      <Navbar session={session} />
+      <Navbar user={user} />
       <FilterList />
       <VacancyList />
       <Footer />
